@@ -1,0 +1,201 @@
+﻿/* body {
+    //#68675F;
+    //rgb(34, 34, 34);
+} */
+* {
+  user-select: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+  pointer-events: none; }
+
+.displayNone {
+  display: none; }
+
+/*#region Mixins */
+/*#endregion Mixins */
+/*#region Settings */
+/*#endregion Settings */
+body {
+  background-color: #3b3b3b; }
+
+.TabNode {
+  z-index: 1;
+  display: grid;
+  grid-template: "structureLineFromChild margin        margin        margin       margin       margin" auto "structureLineFromChild q      upperRouter        upperRouter       favicon      nodeName" 1fr "structureLineFromChild leftLine      router        router       favicon      nodeName" 11px "structureLineFromChild w      lowerRouter        lowerRouter       favicon      nodeName" 1fr "structureLineFromChild structureLine structureLine treeContent  treeContent  treeContent" auto "structureLineFromChild bottomMargin  bottomMargin  bottomMargin bottomMargin bottomMargin" auto / 0px auto auto auto auto 1fr;
+  align-items: center;
+  transition: border 300ms ease-in-out;
+  border-radius: 15px;
+  transition: background-color 300ms;
+  transition: margin 100ms; }
+  .TabNode .leftLine {
+    grid-area: leftLine;
+    width: max-content;
+    min-width: 25px;
+    height: 1px;
+    border: 0px solid white;
+    border-width: 1px 0px 0px 0px; }
+  .TabNode .router {
+    grid-area: router;
+    display: grid;
+    grid-template: "a" auto / auto;
+    pointer-events: all;
+    place-items: center center;
+    width: 9px;
+    height: 9px;
+    border: 1px solid white;
+    border-width: 1px;
+    background-color: #3b3b3b;
+    z-index: 10; }
+    .TabNode .router .inRouterMinus {
+      grid-area: a;
+      width: 5px;
+      border: 0px solid white;
+      border-width: 1px 0px 0px 0px; }
+    .TabNode .router .inRouterMinus__point {
+      width: 1px; }
+    .TabNode .router .inRouterPlus {
+      grid-area: a;
+      display: none;
+      height: 5px;
+      border: 0px solid white;
+      border-width: 0px 1px 0px 0px; }
+  .TabNode .favicon {
+    grid-area: favicon;
+    margin: 0 0 0 5px; }
+    .TabNode .favicon img {
+      max-width: 15px;
+      min-height: 15px; }
+  .TabNode .nodeName {
+    display: flex !important;
+    align-items: center;
+    grid-area: nodeName;
+    width: fit-content;
+    height: max-content;
+    margin: 0 5px; }
+    .TabNode .nodeName .label {
+      padding: 0px 8px;
+      border: none;
+      color: #86c7ff;
+      pointer-events: all;
+      font-size: 16px;
+      border-radius: 15px;
+      background-color: #3a3a3a;
+      /* border: 10px solid #B88846;
+            border-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='75' height='75'%3E%3Cg fill='none' stroke='%23B88846' stroke-width='2'%3E%3Cpath d='M1 1h73v73H1z'/%3E%3Cpath d='M8 8h59v59H8z'/%3E%3Cpath d='M8 8h16v16H8zM51 8h16v16H51zM51 51h16v16H51zM8 51h16v16H8z'/%3E%3C/g%3E%3Cg fill='%23B88846'%3E%3Ccircle cx='16' cy='16' r='2'/%3E%3Ccircle cx='59' cy='16' r='2'/%3E%3Ccircle cx='59' cy='59' r='2'/%3E%3Ccircle cx='16' cy='59' r='2'/%3E%3C/g%3E%3C/svg%3E") 25;
+         */ }
+    .TabNode .nodeName .label::selection {
+      color: #da98f7; }
+    .TabNode .nodeName .font {
+      text-rendering: optimizeLegibility;
+      font-family: Arial, Helvetica, sans-serif;
+      vertical-align: middle;
+      font-size: 14px;
+      color: #f2f1e9; }
+  .TabNode .nodeName__window {
+    border: 2px solid #005dc0;
+    border-width: 0px 0px 0px 0px;
+    background-color: #005dc0;
+    border-radius: 5px;
+    padding: 2px 5px; }
+  .TabNode .structureLineFromChild {
+    grid-area: structureLineFromChild;
+    align-self: start;
+    height: 100%;
+    z-index: 10;
+    border: 0px solid white;
+    border-width: 0px 1px 0px 0px; }
+  .TabNode .structureLineFromChildToChildren {
+    grid-area: 3/4/5/6;
+    align-self: start;
+    height: 100%;
+    z-index: 10;
+    border: 0px solid white;
+    border-width: 0px 0px 0px 1px;
+    transition: all 1s;
+    z-index: 1; }
+  .TabNode .structureLine {
+    grid-area: structureLine;
+    height: 100%; }
+    .TabNode .structureLine > div {
+      height: 100%;
+      border: 0px solid white;
+      border-width: 0px 1px 0px 0px; }
+  .TabNode .treeContent {
+    grid-area: treeContent;
+    width: auto;
+    height: 100%;
+    transition: all 600ms; }
+  .TabNode .toggle {
+    height: 100%;
+    grid-area: 2 / 2 / span 4 / span 4;
+    pointer-events: all; }
+  .TabNode .dragging {
+    height: 100%;
+    grid-area: 2 / 5 / span 3 / span 4;
+    pointer-events: all; }
+  .TabNode .selectableMargin {
+    grid-area: margin; }
+  .TabNode .selectableBottomMargin {
+    grid-area: bottomMargin; }
+  .TabNode .selectableMargin,
+  .TabNode .selectableBottomMargin {
+    height: 10px;
+    pointer-events: all;
+    transition: all 200ms; }
+  .TabNode .TabNodeBorder {
+    height: 100%;
+    padding: 10px;
+    grid-area: 2 / 2 / 5 / 7;
+    transition: all 0ms;
+    border-radius: 15px; }
+
+#InitialNode {
+  position: static;
+  margin-bottom: 1000px; }
+  #InitialNode > .structureLineFromChild {
+    display: none; }
+
+.selectable {
+  background-color: #484848 !important; }
+
+.addUp:hover > .selectableMargin,
+.addBottom:hover > .selectableBottomMargin {
+  height: 45px !important; }
+
+.Faded > div:not(.treeContent):not(.router) {
+  opacity: 0.75; }
+
+.folded > .treeContent {
+  max-height: 0px !important;
+  opacity: 0; }
+
+.folded > .structureLineFromChildToChildren {
+  opacity: 0 !important; }
+
+#draggingELement {
+  pointer-events: none !important; }
+  #draggingELement div {
+    pointer-events: none !important; }
+  #draggingELement > div {
+    position: absolute;
+    border-radius: 15px;
+    pointer-events: none !important;
+    background-color: #484848;
+    padding: 0px 5px 5px 5px; }
+
+.openData {
+  position: fixed;
+  top: 0;
+  left: 70%;
+  color: #f2f1e9;
+  background-color: #3a3a3a;
+  padding: 20px;
+  border-radius: 15px;
+  pointer-events: all; }

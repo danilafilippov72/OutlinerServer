@@ -1,0 +1,36 @@
+﻿<div id=@TreeStructureVm.Id class="TabNode" url=@TreeStructureVm.Url>
+    <div class="structureLineFromChild"></div>
+
+    <div class="treeNodeBorder"></div>
+
+    <div class="leftLine"></div>
+
+    <div class="router">
+        <div class="inRouterMinus"></div>
+        <div class="inRouterPlus"></div>
+    </div>
+
+    <div class="favicon"> <img src=@TreeStructureVm.FaviconUrl> </div>
+
+    <div class="nodeName">
+        <p class="font">@TreeStructureVm.Title</p>
+    </div>
+
+    <div class="treeContent"></div>
+
+    <div class="toggle"></div>
+    <div class="dragging"></div>
+    <div class="selectableMargin"></div>
+    <div class="selectableBottomMargin"></div>
+    <treeContent>
+        @foreach (var childTreeStructureVm in TreeStructureVm.ChildrenTabVms)
+            {
+                <TabNodeComponent TreeStructureVm=childTreeStructureVm/>
+            }
+    </treeContent>
+</div>
+
+@code {
+    [Parameter]
+    public ViewModels.TreeStructureVm TreeStructureVm { get; set; }
+}

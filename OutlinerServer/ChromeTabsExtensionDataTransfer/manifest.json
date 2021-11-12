@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Outliner",
+  "description": "Hierarchial browser's tabs tree that help you organise everything on Internet And in your local system.",
+  "version": "1.75",
+
+  "permissions": [
+    "windows",
+    "storage",
+    "downloads",
+    "tabs",
+
+
+    "https://localhost:7098/CreateUpdateTempTabNodeDtos"
+  ],
+  "host_permissions": [
+    "https://localhost:7098/CreateUpdateTempTabNodeDtos"
+  ],
+
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {}
+} 

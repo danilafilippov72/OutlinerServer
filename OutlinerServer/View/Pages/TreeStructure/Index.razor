@@ -1,0 +1,123 @@
+﻿
+@page "/"
+@page "/call-web-api"
+@using System.Text.Json
+@using System.Text.Json.Serialization;
+
+@using ViewModels;
+@using System.Net.Http
+
+@using System.Threading.Tasks
+@using OutlinerServer.Models;
+@using OutlinerServer.Models.Tab;
+@using OutlinerServer.View.Pages.TreeStructure.TabNode;
+
+
+
+@*@code{
+    public TreeStructureVm TreeStructureVm;
+    protected override async Task OnInitializedAsync()
+    {
+        var tabDtos = JsonConvert.DeserializeObject<List<Model.Tab.TabDto>>("[{\"active\":true,\"audible\":false,\"autoDiscardable\":true,\"discarded\":false,\"favIconUrl\":\"\",\"groupId\":-1,\"height\":961,\"highlighted\":true,\"id\":665,\"incognito\":false,\"index\":0,\"mutedInfo\":{\"muted\":false},\"pinned\":false,\"selected\":true,\"status\":\"complete\",\"title\":\"Extensions\",\"url\":\"edge://extensions/\",\"width\":1920,\"windowId\":565},{\"active\":false,\"audible\":false,\"autoDiscardable\":true,\"discarded\":false,\"favIconUrl\":\"https://www.youtube.com/s/desktop/e2ba2c0f/img/favicon_32x32.png\",\"groupId\":-1,\"height\":929,\"highlighted\":false,\"id\":666,\"incognito\":false,\"index\":1,\"mutedInfo\":{\"muted\":false},\"pinned\":false,\"selected\":false,\"status\":\"unloaded\",\"title\":\"YouTube\",\"url\":\"https://www.youtube.com/\",\"width\":1920,\"windowId\":565},{\"active\":false,\"audible\":false,\"autoDiscardable\":true,\"discarded\":false,\"favIconUrl\":\"https://www.youtube.com/s/desktop/e2ba2c0f/img/favicon_32x32.png\",\"groupId\":-1,\"height\":929,\"highlighted\":false,\"id\":667,\"incognito\":false,\"index\":2,\"mutedInfo\":{\"muted\":false},\"pinned\":false,\"selected\":false,\"status\":\"unloaded\",\"title\":\"#37 CS: GO - Легкие Эйсы - YouTube\",\"url\":\"https://www.youtube.com/watch?v=Xm8Dfn05HGg\",\"width\":1920,\"windowId\":565},{\"active\":false,\"audible\":false,\"autoDiscardable\":true,\"discarded\":false,\"favIconUrl\":\"\",\"groupId\":-1,\"height\":929,\"highlighted\":false,\"id\":668,\"incognito\":false,\"index\":3,\"mutedInfo\":{\"muted\":false},\"pinned\":false,\"selected\":false,\"status\":\"unloaded\",\"title\":\"Settings\",\"url\":\"edge://settings/profiles/multiProfileSettings\",\"width\":1920,\"windowId\":565},{\"active\":false,\"audible\":false,\"autoDiscardable\":true,\"discarded\":false,\"favIconUrl\":\"https://www.bing.com/sa/simg/favicon-2x.ico\",\"groupId\":-1,\"height\":929,\"highlighted\":false,\"id\":669,\"incognito\":false,\"index\":4,\"mutedInfo\":{\"muted\":false},\"pinned\":false,\"selected\":false,\"status\":\"complete\",\"title\":\"livewallpaper - Bing\",\"url\":\"https://www.bing.com/search?q=livewallpaper&form=WSBEDG&qs=SW&cvid=09a8da9d75274a82b817720adfb3b9c9&pq=livewallpaper&cc=RU&setlang=en-US&nclid=0914EE739515D43CF980F8C82D2B9ADD&ts=1635452268079&wsso=Moderate\",\"width\":1920,\"windowId\":565},{\"active\":false,\"audible\":false,\"autoDiscardable\":true,\"discarded\":false,\"favIconUrl\":\"https://mylivewallpapers.com/wp-content/uploads/fbrfg/favicon.ico?v=NmaK3RwxoE\",\"groupId\":-1,\"height\":961,\"highlighted\":false,\"id\":670,\"incognito\":false,\"index\":5,\"mutedInfo\":{\"muted\":false},\"pinned\":false,\"selected\":false,\"status\":\"complete\",\"title\":\"MyLiveWallpapers.com – Free Live Wallpaper for Your Desktop PC & Android Phone!\",\"url\":\"https://mylivewallpapers.com/\",\"width\":1920,\"windowId\":565},{\"active\":false,\"audible\":false,\"autoDiscardable\":true,\"discarded\":false,\"favIconUrl\":\"https://s2.bunnycdn.ru/assets/9anime/favicons/favicon.png?v1\",\"groupId\":-1,\"height\":961,\"highlighted\":false,\"id\":671,\"incognito\":false,\"index\":6,\"mutedInfo\":{\"muted\":false},\"pinned\":false,\"selected\":false,\"status\":\"complete\",\"title\":\"Watch Anime Online, Watch English Anime Online Subbed, Dubbed\",\"url\":\"https://9anime.to/home\",\"width\":1920,\"windowId\":565},{\"active\":false,\"audible\":false,\"autoDiscardable\":true,\"discarded\":false,\"favIconUrl\":\"https://www.bing.com/sa/simg/favicon-2x.ico\",\"groupId\":-1,\"height\":961,\"highlighted\":false,\"id\":672,\"incognito\":false,\"index\":7,\"mutedInfo\":{\"muted\":false},\"pinned\":false,\"selected\":false,\"status\":\"complete\",\"title\":\"System.NullReferenceException - Bing\",\"url\":\"https://www.bing.com/search?q=System.NullReferenceException\",\"width\":1920,\"windowId\":565},{\"active\":false,\"audible\":false,\"autoDiscardable\":true,\"discarded\":false,\"groupId\":-1,\"height\":149,\"highlighted\":false,\"id\":673,\"incognito\":false,\"index\":8,\"mutedInfo\":{\"muted\":false},\"pinned\":false,\"selected\":false,\"status\":\"complete\",\"title\":\"chrome-extension://pomeeaajiomikooocjchbgcgaldcmikm/index.html\",\"url\":\"chrome-extension://pomeeaajiomikooocjchbgcgaldcmikm/index.html\",\"width\":1920,\"windowId\":565},{\"active\":false,\"audible\":false,\"autoDiscardable\":true,\"discarded\":false,\"favIconUrl\":\"https://yastatic.net/s3/web4static/_/v2/ZcejnfbLE_TlMK13nS41mdC4A88.png\",\"groupId\":-1,\"height\":961,\"highlighted\":false,\"id\":678,\"incognito\":false,\"index\":9,\"mutedInfo\":{\"muted\":false},\"pinned\":false,\"selected\":false,\"status\":\"complete\",\"title\":\"chrome.tabs get all tabs — Яндекс: нашлось 9 млн результатов\",\"url\":\"https://yandex.ru/search/?text=chrome.tabs+get+all+tabs&lr=195&clid=2411726\",\"width\":1920,\"windowId\":565},{\"active\":false,\"audible\":false,\"autoDiscardable\":true,\"discarded\":false,\"favIconUrl\":\"https://i1.social.s-msft.com/Forums/GlobalResources/images/Msdn/favicon.ico\",\"groupId\":-1,\"height\":961,\"highlighted\":false,\"id\":682,\"incognito\":false,\"index\":10,\"mutedInfo\":{\"muted\":false},\"pinned\":false,\"selected\":false,\"status\":\"complete\",\"title\":\"How to get all open tabs in google chrome\",\"url\":\"https://social.msdn.microsoft.com/Forums/en-US/eaef0ea6-9426-45ca-a5f0-b9bc5c53b84e/how-to-get-all-open-tabs-in-google-chrome?forum=csharpgeneral\",\"width\":1920,\"windowId\":565},{\"active\":false,\"audible\":false,\"autoDiscardable\":true,\"discarded\":false,\"favIconUrl\":\"https://cdn.sstatic.net/Sites/stackoverflow/Img/favicon.ico?v=ec617d715196\",\"groupId\":-1,\"height\":961,\"highlighted\":false,\"id\":680,\"incognito\":false,\"index\":11,\"mutedInfo\":{\"muted\":false},\"pinned\":false,\"selected\":false,\"status\":\"complete\",\"title\":\"Get the urls of all the tabs in all windows using chrome extension - Stack Overflow\",\"url\":\"https://stackoverflow.com/questions/16185044/get-the-urls-of-all-the-tabs-in-all-windows-using-chrome-extension\",\"width\":1920,\"windowId\":565},{\"active\":false,\"audible\":false,\"autoDiscardable\":true,\"discarded\":false,\"favIconUrl\":\"https://www.google.ru/favicon.ico\",\"groupId\":-1,\"height\":961,\"highlighted\":false,\"id\":684,\"incognito\":false,\"index\":12,\"mutedInfo\":{\"muted\":false},\"pinned\":false,\"selected\":false,\"status\":\"complete\",\"title\":\"get all tabs chrome extension - Поиск в Google\",\"url\":\"https://www.google.ru/search?q=get+all+tabs+chrome+extension&newwindow=1&source=hp&ei=At2KYZ61BaqqrgSohYVQ&iflsig=ALs-wAMAAAAAYYrrEreho3lXnwPUPpE27VqykcnJ4uzx&oq=get+all+tabs+chrome+extension&gs_lcp=Cgdnd3Mtd2l6EAMyBQgAEIAEMgYIABAWEB4yBggAEBYQHjIGCAAQFhAeOggIABCABBCxAzoOCC4QgAQQsQMQxwEQ0QM6CAguEIAEELEDOgsIABCABBCxAxCDAToOCC4QgAQQsQMQxwEQrwE6DgguELEDEIMBEMcBEKMCOggIABCxAxCDAToLCC4QgAQQsQMQ1AI6CwguELEDEIMBENQCUMwBWNUfYNsgaAFwAHgAgAF4iAGiFZIBBDIwLjmYAQCgAQGwAQA&sclient=gws-wiz&ved=0ahUKEwievsSWkoz0AhUqlYsKHahCAQoQ4dUDCAc&uact=5\",\"width\":1920,\"windowId\":565},{\"active\":false,\"audible\":false,\"autoDiscardable\":true,\"discarded\":false,\"favIconUrl\":\"https://cdn.sstatic.net/Sites/stackoverflow/Img/favicon.ico?v=ec617d715196\",\"groupId\":-1,\"height\":149,\"highlighted\":false,\"id\":685,\"incognito\":false,\"index\":13,\"mutedInfo\":{\"muted\":false},\"pinned\":false,\"selected\":false,\"status\":\"complete\",\"title\":\"javascript - Chrome-Extension: iterate through all tabs? - Stack Overflow\",\"url\":\"https://stackoverflow.com/questions/5409242/chrome-extension-iterate-through-all-tabs\",\"width\":1920,\"windowId\":565}]");
+        var tabVms = ToTabVms(tabDtos);
+        List<TreeStructureVm> childrenTabDtosById(string? TabVmId) => tabVms
+                        .Where(tabVm => tabVm.ParentId == TabVmId).ToList()
+                        .Select(tabVm => new TreeStructureVm(tabVm) { ChildrenTabVms = childrenTabDtosById(tabVm.Id) }).ToList();
+        TreeStructureVm = new TreeStructureVm(null) { ChildrenTabVms = childrenTabDtosById(null)  };
+    }
+    public static List<TabVm> ToTabVms(List<TabDto> tabDtos) => 
+        tabDtos.Select(tabDto =>
+        new TabVm(tabDto.Id, tabDto.openerTabId, tabDto.Title, tabDto.Url, tabDto.FaviconUrl ,tabDto.WindowUrl)).ToList();
+
+}*@
+
+
+
+
+@code {
+    public TreeStructureVm treeStructureVm;
+    public string t;
+
+    protected override async Task OnInitializedAsync()
+    {
+        using var db = new DBTempTabNodeDtos();
+        List<TabNodeDto> tabDtos = db.TabNodeDtos.ToList();
+        
+        var tabVms = ToTabVms(tabDtos);
+        t = tabVms[0].WindoUrl;
+        List<TreeStructureVm> childrenTabDtosById(string? TabVmId) => tabVms
+                        .Where(tabVm => tabVm.ParentId == TabVmId).ToList()
+                        .Select(tabVm => new TreeStructureVm(tabVm) { ChildrenTabVms = childrenTabDtosById(tabVm.Id) }).ToList();
+        treeStructureVm = new TreeStructureVm(null) { ChildrenTabVms = childrenTabDtosById(null) };
+    }
+    public static List<TabNodeVm> ToTabVms(List<TabNodeDto> tabDtos) => 
+        tabDtos.Select(tabDto =>
+        new TabNodeVm(tabDto.Id, tabDto.openerTabId, tabDto.Title, tabDto.Url, tabDto.FaviconUrl ,tabDto.WindowId)).ToList();
+    
+}
+
+<TabNodeComponent TreeStructureVm=@treeStructureVm/>
+
+@treeStructureVm.ToString()
+@*
+
+<div id=@TreeStructureVm.Id class="TabNode" url=@TreeStructureVm.Url>
+    <div class="structureLineFromChild"></div>
+
+    <div class="treeNodeBorder"></div>
+
+    <div class="leftLine"></div>
+
+    <div class="router">
+        <div class="inRouterMinus"></div>
+        <div class="inRouterPlus"></div>
+    </div>
+
+    <div class="favicon"> <img src=@TreeStructureVm.FaviconUrl> </div>
+
+    <div class="nodeName nodeName__window">
+        <p class="font">@TreeStructureVm.Title</p>
+    </div>
+
+    <div class="treeContent"></div>
+
+    <div class="toggle"></div>
+    <div class="dragging"></div>
+    <div class="selectableMargin"></div>
+    <div class="selectableBottomMargin"></div>
+
+    @TreeStructureVm.ChildrenTabVms.Count()
+    <div class="treeContent">
+        @foreach (var tabDto in TreeStructureVm.ChildrenTabVms)
+        {
+            <div id=@tabDto.Id class="TabNode" url=@tabDto.Url>
+                <div class="structureLineFromChild"></div>
+
+                <div class="treeNodeBorder"></div>
+
+                <div class="leftLine"></div>
+
+                <div class="router">
+                    <div class="inRouterMinus"></div>
+                    <div class="inRouterPlus"></div>
+                </div>
+
+                <div class="favicon"> <img src=@tabDto.FaviconUrl> </div>
+
+                <div class="nodeName">
+                    <p class="font">@tabDto.Title</p>
+                </div>
+
+                <div class="treeContent"></div>
+
+                <div class="toggle"></div>
+                <div class="dragging"></div>
+                <div class="selectableMargin"></div>
+                <div class="selectableBottomMargin"></div>
+            </div>
+        }
+    </div>
+</div>
+
+
+*@
