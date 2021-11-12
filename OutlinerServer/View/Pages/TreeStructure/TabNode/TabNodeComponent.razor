@@ -22,12 +22,12 @@
     <div class="dragging"></div>
     <div class="selectableMargin"></div>
     <div class="selectableBottomMargin"></div>
-    <treeContent>
+    <div class="treeContent">
         @foreach (var childTreeStructureVm in TreeStructureVm.ChildrenTabVms)
             {
                 <TabNodeComponent TreeStructureVm=childTreeStructureVm/>
             }
-    </treeContent>
+    </div>
 </div>
 
 @code {

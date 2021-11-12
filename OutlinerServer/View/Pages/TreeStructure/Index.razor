@@ -44,11 +44,11 @@
         List<TabNodeDto> tabDtos = db.TabNodeDtos.ToList();
         
         var tabVms = ToTabVms(tabDtos);
-        t = tabVms[0].WindoUrl;
+        t = tabVms[0].WindowId;
         List<TreeStructureVm> childrenTabDtosById(string? TabVmId) => tabVms
                         .Where(tabVm => tabVm.ParentId == TabVmId).ToList()
                         .Select(tabVm => new TreeStructureVm(tabVm) { ChildrenTabVms = childrenTabDtosById(tabVm.Id) }).ToList();
-        treeStructureVm = new TreeStructureVm(null) { ChildrenTabVms = childrenTabDtosById(null) };
+        treeStructureVm = new TreeStructureVm(null) { ChildrenTabVms = childrenTabDtosById("") };
     }
     public static List<TabNodeVm> ToTabVms(List<TabNodeDto> tabDtos) => 
         tabDtos.Select(tabDto =>
@@ -58,7 +58,7 @@
 
 <TabNodeComponent TreeStructureVm=@treeStructureVm/>
 
-@treeStructureVm.ToString()
+@t
 @*
 
 <div id=@TreeStructureVm.Id class="TabNode" url=@TreeStructureVm.Url>
